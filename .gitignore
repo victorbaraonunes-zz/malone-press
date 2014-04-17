@@ -1,2 +1,5 @@
 node_modules
-fonts/*
+fonts/*.eot
+fonts/*.svg
+fonts/*.ttf
+fonts/*.woff
