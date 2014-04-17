@@ -3,8 +3,8 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="author" content="Jefferson Mexkiv"/>
-<meta name="robots" content="noindex,nofollow"/>
+<meta name="author" content="Jefferson Mexkiv" />
+<meta name="robots" content="noindex,nofollow" />
 <meta name="revisit-after" content="7 days"  />
 <meta name="description" content="<?php echo DESCRIPTION; ?>">
 <meta itemprop="name" content="<?php echo TITLE; ?>" />
