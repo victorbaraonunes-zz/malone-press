@@ -22,13 +22,11 @@ define('WP_SITEURL',$http_generic);
  * Define dados e URLs para utilização no Front ou Functions.
  */
 
-$site_name = 'MalonePress';
-$site_desc = 'Minimal framework for developement';
-
 define('NAME',get_bloginfo('name'));
+define('DESCRIPTION',get_bloginfo('description'));
 define('URL',get_bloginfo('url'));
 define('TEMPLATE',get_bloginfo('template_directory'));
-define('TITLE',wp_title( '|', false, 'right' ).' '.$site_name);
+define('TITLE',wp_title( '|', false, 'right' ).' '.NAME.' - '.DESCRIPTION);
 define('PATH',get_template_directory());
 
 /**

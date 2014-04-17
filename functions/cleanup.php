@@ -80,6 +80,18 @@ add_action('admin_head', 'custom_favicon');
 add_action( 'login_head', 'custom_favicon' );
 
 /**
+ * Remove parametros dos scripts e estilos.
+ */
+
+function remove_parameters( $src ) {
+    if ( strpos( $src, 'ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+add_filter( 'style_loader_src', 'remove_parameters', 9999 );
+add_filter( 'script_loader_src', 'remove_parameters', 9999 );
+
+/**
  * Remove cabeçalho do Wordpress no canto superior esquerdo do painel.
  */
 

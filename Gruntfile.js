@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         },
       },
       css: {
-        files: ['css/base.less','css/style.less'],
+        files: ['css/style.less'],
         tasks: ['less','cssmin'],
         options: {
             livereload: true
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     },
 
     less: {
-      'css/style.min.css': ['css/base.less','css/style.less']
+      'css/style.min.css': ['css/style.less']
     },
 
      cssmin: {
