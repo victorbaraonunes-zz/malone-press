@@ -1,0 +1,107 @@
+
+/*
+* Algumas variáveis, funções e seletores bases.
+*/
+
+@fontColor: #FFF;
+@grid: 960px;
+@black: #000;
+
+.fontRegular(@size:16px)
+{
+	font-family: 'openSansRegular', Verdana, Sans-Serif;
+	font-weight: normal;
+	font-size: @size;
+}
+
+.fontBold(@size:16px)
+{
+	font-family: 'openSansBold', Verdana, Sans-Serif;
+	font-weight: normal;
+	font-size: @size;
+}
+
+*
+{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+	font-weight: normal;
+	outline:none;
+	border: none;
+}
+
+body 
+{
+	background: #FFF;
+	.fontRegular;
+	color: @fontColor;
+}
+
+.wrap 
+{
+	width: @grid;
+	margin: auto;
+	position: relative;
+}
+
+.ablock 
+{
+	display: block;
+	width: inherit;
+	height: inherit;
+	text-indent: -9999px;
+}
+
+.alink 
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+/*
+* Estilização de formulário.
+*/
+
+.form 
+{
+	input,textarea 
+	{
+		.fontRegular(14px);
+		color: @fontColor;
+		border: 1px solid @fontColor;
+		background: none;
+		width: 400px;
+		padding: 5px;
+		margin: 10px 0px;
+		&::-webkit-input-placeholder
+		{
+			opacity: 1;
+			color: @fontColor;
+		}
+		&::-moz-placeholder
+		{
+			opacity: 1;
+			color: @fontColor;
+		}
+	}
+	textarea 
+	{
+		height: 150px;
+	}
+	input#enviar 
+	{
+		background: #FFF;
+		color: @fontColor;
+		border-radius: 10px;
+		width: 80px;
+		text-transform: uppercase;
+		cursor: pointer;
+		&:hover 
+		{
+			margin-left:2px;
+		}
+	}
+}
+
+
