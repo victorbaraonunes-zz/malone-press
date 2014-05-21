@@ -8,7 +8,6 @@ define('NAME',get_bloginfo('name'));
 define('DESCRIPTION',get_bloginfo('description'));
 define('URL',get_bloginfo('url'));
 define('TEMPLATE',get_bloginfo('template_directory'));
-define('TITLE',wp_title( '|', false, 'right' ).' '.NAME.' - '.DESCRIPTION);
 define('PATH',get_template_directory());
 
 /**

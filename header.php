@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="pt-br">
-
+<?php define('TITLE',wp_title( '|', false, 'right' ).' '.NAME.' - '.DESCRIPTION); ?>
 <head>
 <meta charset="UTF-8">
 <meta name="author" content="Jefferson Mexkiv" />
