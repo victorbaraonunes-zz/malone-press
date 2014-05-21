@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    contato();
 	//fancybox();
 	cycle();
 
@@ -45,6 +46,55 @@ function cycle()
 		pagerAnchorBuilder: function(idx, slide) {
 			return "<li><a href='#'>"+slide.alt+"</a></li>";
 		}
+	});
+
+}
+
+function contato()
+{
+	
+	$('#enviar').click(function(){
+
+		var dados = $('form').serialize();
+
+		$.ajax({
+
+   			type: $('form').attr('method'),
+  			url: $('form').attr('action'),
+			data: dados,
+			dataType: 'json',
+			beforeSend: function(){
+  				$('#response').html("Enviando...");
+ 			},
+   			success: function(data){
+   				console.log(data);
+
+   				switch(data.status)
+   				{
+   					case '0':
+   					for(var i=0; i < data.field.not_ok.length; i++)
+   					{
+   						$('form').find('#'+data.field.not_ok[i]).removeClass('green');
+   						$('form').find('#'+data.field.not_ok[i]).addClass('red');
+   					}
+   					for(var i=0; i < data.field.ok.length; i++)
+   					{
+   						$('form').find('#'+data.field.ok[i]).removeClass('red');
+   						$('form').find('#'+data.field.ok[i]).addClass('green');
+   					}
+   					$('#response').html(data.texto).css('color','red');
+   					break;
+   					
+   					case '1':
+   					$('input,textarea').removeClass('red green');
+   					$('#response').html(data.texto).css('color','#23ea14');
+   					$('form')[0].reset();
+   					break;
+   				}
+			
+  	 		},
+		});
+		return false;
 	});
 
 }

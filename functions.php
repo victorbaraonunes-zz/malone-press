@@ -16,4 +16,5 @@ include(get_template_directory().'/functions/post-type.php');
 include(get_template_directory().'/functions/post-meta.php');
 include(get_template_directory().'/functions/table-column.php');
 include(get_template_directory().'/functions/custom.php');
+include(get_template_directory().'/functions/contact-form.php');
 
