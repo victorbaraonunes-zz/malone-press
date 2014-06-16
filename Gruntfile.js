@@ -65,7 +65,7 @@ module.exports = function(grunt) {
       },
       src: './',
       dest: '/www/wp-content/themes/MalonePress/',
-      exclusions: ['node_modules', 'Gruntfile.js', 'package.json','.ftppass']
+      exclusions: ['node_modules', 'Gruntfile.js', 'package.json','.ftppass','.git']
       }
     }
 
