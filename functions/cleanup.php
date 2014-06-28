@@ -148,7 +148,6 @@ add_action( 'admin_menu', 'remove_menu' );
  */
 
 add_filter( 'show_admin_bar', '__return_false' );
-add_action( 'wp_enqueue_scripts', 'head' );
 add_theme_support( 'post-thumbnails' );
 
 remove_action('wp_head', 'rsd_link');
