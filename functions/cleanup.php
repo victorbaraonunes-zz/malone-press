@@ -63,8 +63,8 @@ add_action('wp_dashboard_setup', 'remove_widgets' );
  */
 
 function painel_footer() {
-    //echo "Desenvolvido por <a href='http://flize.com.br' title='Flize Tecnologia' target='_blank'>Flize Tecnologia</a>";
-    echo "Desenvolvido por <a href='http://lola33.com.br' title='Lola 33 - Comunicação e Marketing' target='_blank'>Lola 33 - Comunicação e Marketing</a>";
+    echo "Desenvolvido por <a href='http://flize.com.br' title='Flize Tecnologia' target='_blank'>Flize Tecnologia</a>";
+    //echo "Desenvolvido por <a href='http://lola33.com.br' title='Lola 33 - Comunicação e Marketing' target='_blank'>Lola 33 - Comunicação e Marketing</a>";
 } 
 add_filter('admin_footer_text', 'painel_footer');
 

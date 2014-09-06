@@ -1,8 +1,8 @@
 $(document).ready(function(){
     
-    contato();
-	//fancybox();
+    fancybox();
 	cycle();
+	contato();
 
 	$('.external').attr('target','_blank');
 

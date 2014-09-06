@@ -1,86 +1,211 @@
+
 'use strict';
+
 module.exports = function(grunt) {
 
-  grunt.initConfig({
+    grunt.initConfig({
 
-    watch: {
-      js: {
-        files: ['js/script.js','js/gmaps.js'],
-        tasks: ['uglify','concat'],
-        options: {
-            livereload: true,
+        pkg: grunt.file.readJSON('package.json'),
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> | ' +
+                'last update: <%= grunt.template.today("yyyy-mm-dd") %> */',
+
+        watch: {
+
+            js: {
+                files: ['build/js/script.js','build/js/gmaps.js'],
+                tasks: ['uglify','concat'],
+                options: {
+                    livereload: true,
+                },
+            },
+
+            css: {
+                files: ['build/css/style.less','build/css/base.less'],
+                tasks: ['less','cssmin'],
+                options: {
+                    livereload: true
+                },
+            },
+
+            file: {
+                files: ['*.php','**/*.php'],
+                options: {
+                    livereload: true
+                },
+            },
+
+            img: {
+                files: ['build/img/*'],
+                tasks: ['copy:img'],
+                options: {
+                    livereload: true
+                },
+            },
         },
-      },
-      css: {
-        files: ['css/style.less','css/base.less'],
-        tasks: ['less','cssmin'],
-        options: {
-            livereload: true
+
+        less: {
+            'build/_temp/style.css': ['build/css/style.less']
         },
-      },
-      file: {
-        files: ['index.php','./*.php'],
-        options: {
-            livereload: true
+
+        cssmin: {
+            'assets/css/style.min.css': [
+                'bower_components/fancybox/source/jquery.fancybox.rewrited.css',
+                'build/css/webfont.css',
+                'build/_temp/style.css'
+            ]
         },
-      }
-    },
 
-    less: {
-      'css/style.min.css': ['css/style.less']
-    },
+        uglify: {
+            options: {
+                mangle: false,
+                preserveComments: false
+            },
+            target: 
+            {
+                files: {           
+                    'build/_temp/script.js': [
+                        'bower_components/jquery-cycle/jquery.cycle.all.js',
+                        'build/js/script.js',
+                        'build/js/gmaps.js'
+                    ]
+                }
+            }
+        },
 
-     cssmin: {
-      'css/style.min.css': ['css/webfont.css','css/style.min.css'],
-      'js/lib/main.min.css': ['js/lib/jquery.fancybox.css']
-    },
+        concat: {
+            options: {
+                separator: ';',
+                stripBanners: true
+            },
+            files: {
+                src: [
+                    'bower_components/jquery/jquery.min.js',
+                    'bower_components/fancybox/source/jquery.fancybox.pack.js',
+                    'bower_components/jquery-easing-original/jquery.easing.1.3.min.js',
+                    'bower_components/html5shiv/dist/html5shiv.min.js',
+                    'bower_components/updateyourbrowser/index.js',
+                    'build/_temp/script.js',
+                ],
+                dest: 'assets/js/script.min.js',
+            },
+        },
 
-    uglify: {
-      options: {
-        mangle: false,
-      },
-      target: {
-        files: {
-        'js/script.min.js': ['js/jquery.cycle.js','js/jquery.easing.js','js/browser.js','js/html5.js','js/script.js','js/gmaps.js']
+        clean: {
+            assets: ["assets/*", "!assets/index.php"]
+        },
+
+        cssUrlRewrite: {
+            dist: {
+                src: "bower_components/fancybox/source/jquery.fancybox.css",
+                dest: "bower_components/fancybox/source/jquery.fancybox.rewrited.css",
+                options: {
+                    skipExternal: true,
+                    rewriteUrl: function(url, options, dataURI) {
+                        var path = url.split('/').reverse();
+                        return '../js/fancybox/'+path[0];
+                    }
+                }
+            }
+        },
+
+        copy: {
+            fancybox: {
+                cwd: 'bower_components/fancybox/source',
+                src: ['*.{png,jpg,gif}','helpers/*'],
+                dest: 'assets/js/fancybox/',
+                expand: true,
+                dot: true
+            },
+            img: {
+                cwd: 'build/img',
+                src: ['*.{jpg,png,gif}','!_*.*'],
+                dest: 'assets/img/',
+                expand: true,
+                dot: true
+            },
+            fonts: {
+                cwd: 'build/fonts',
+                src: ['*.{eot,svg,ttf,woff}'],
+                dest: 'assets/fonts/',
+                expand: true,
+                dot: true
+            },
+            silence: {
+                files: [
+                    { 
+                        cwd: './assets', 
+                        src: ['index.php'],
+                        dest: 'assets/img/',
+                        expand: true,
+                        dot: true
+                    },
+                    { 
+                        cwd: './assets', 
+                        src: ['index.php'],
+                        dest: 'assets/css/',
+                        expand: true,
+                        dot: true
+                    },
+                    { 
+                        cwd: './assets', 
+                        src: ['index.php'],
+                        dest: 'assets/js/',
+                        expand: true,
+                        dot: true
+                    },
+                    { 
+                        cwd: './assets', 
+                        src: ['index.php'],
+                        dest: 'assets/fonts/',
+                        expand: true,
+                        dot: true
+                    },
+                ],
+            expand: true,
+                dot: true
+            },
+        },
+
+        'ftp-deploy': {
+            build: {
+                auth: {
+                    host: 'localhost',
+                    port: 21,
+                    authKey: 'key1'
+                },
+                src: '../../../',
+                dest: '/',
+                //src: './',
+                //dest: '/www/wp-content/themes/**/',
+                exclusions: [
+                    'node_modules',
+                    'bower_components',
+                    'Gruntfile.js',
+                    'bower.json',
+                    'package.json',
+                    '.ftppass',
+                    '.gitignore',
+                    '.git',
+                    'build'
+                ]
+            }
         }
-      }
-    },
 
-    concat: {
-      options: {
-        separator: ';',
-      },
-      basic: {
-        src: ['js/jquery-1.10.1.min.js','js/lib/jquery.fancybox.pack.js','js/lib/jquery.mousewheel-3.0.6.pack.js','js/script.min.js'],
-        dest: 'js/script.min.js',
-      },
-    },
 
-    'ftp-deploy': {
-    build: {
-      auth: {
-        host: 'ftp.server.com.br',
-        port: 21,
-        authKey: 'key1'
-      },
-      src: './',
-      dest: '/www/wp-content/themes/MalonePress/',
-      exclusions: ['node_modules', 'Gruntfile.js', 'package.json','.ftppass','.git']
-      }
-    }
-
-});
+    });
  
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-cssmin');
-grunt.loadNpmTasks('grunt-contrib-less');
-grunt.loadNpmTasks('grunt-contrib-concat');
-grunt.loadNpmTasks('grunt-ftp-deploy');
-grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-ftp-deploy');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks("grunt-css-url-rewrite");
 
-grunt.registerTask('default', ['watch']);
-grunt.registerTask('deploy', ['ftp-deploy']);
-
+    grunt.registerTask('default', ['clean','cssUrlRewrite','copy','less','cssmin','uglify','concat']);
+    grunt.registerTask('deploy', ['ftp-deploy']);
 
 };
 

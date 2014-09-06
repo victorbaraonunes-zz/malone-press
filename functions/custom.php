@@ -9,7 +9,6 @@ function custom_head()
     wp_deregister_script('jquery');
     wp_enqueue_script('script', TEMPLATE.'/js/script.min.js',array(),'1.0');
     wp_enqueue_style('style',TEMPLATE.'/css/style.min.css', false, '1.0');
-    wp_enqueue_style('lib',TEMPLATE.'/js/lib/main.min.css', false, '1.0');
 }
 add_action('wp_enqueue_scripts','custom_head');
 
