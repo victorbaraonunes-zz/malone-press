@@ -1,8 +1,9 @@
 # MalonePress
 
-MalonePress é um framework minimalista, organizado, possui funções de limpeza e customizacão. MalonePress é baseado no framework [Roots](http://github.com/roots/roots).
+MalonePress é um framework minimalista, organizado, possui funções de limpeza e customizacão. 
 
-* URL: [MalonePress](http://github.com/mexkiv/MalonePress)
-* Author: [Jefferson Mexkiv](http://facebook.com/mexkiv)
-* Contact: [jefferson@flize.com.br](jefferson@flize.com.br)
+* Download: git clone git@...
+* Dependências grunt: npm install
+* Dependências bower: bower install
+* inicializacão do projeto: grunt
 
