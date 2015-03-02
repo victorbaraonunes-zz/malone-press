@@ -14,6 +14,7 @@
     "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-css-url-rewrite": "~0.3.5",
-    "grunt-ftp-deploy": "~0.1.1"
+    "grunt-ftp-deploy": "~0.1.1",
+    "time-grunt": "^1.1.0"
   }
 }

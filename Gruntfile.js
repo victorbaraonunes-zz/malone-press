@@ -210,5 +210,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['clean','cssUrlRewrite','copy','stylus','cssmin','uglify','concat','watch']);
     grunt.registerTask('deploy', ['ftp-deploy']);
 
+    require('time-grunt')(grunt);
+
 };
 
