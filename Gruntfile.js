@@ -44,11 +44,14 @@ module.exports = function(grunt) {
         },
 
         stylus: {
-            'bower_components/_temp/style.css': ['build/css/style.styl']
+            'bower_components/_temp/style.css': [
+                'build/css/style.styl'
+            ]
         },
 
         cssmin: {
             'assets/css/style.min.css': [
+                //'bower_components/normalize.css/normalize.css',
                 'bower_components/fancybox/source/jquery.fancybox.rewrited.css',
                 'build/css/webfont.css',
                 'bower_components/_temp/style.css'

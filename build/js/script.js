@@ -33,7 +33,7 @@ function fancybox()
 function cycle()
 {
 
-	$("#slideshow").cycle({
+	$(".slideshow").cycle({
 		manualTrump: false,
 		fx: 'scrollRight',
 		easing:  'easeInOutBack',
@@ -41,8 +41,8 @@ function cycle()
 		timeout: 3000,
 		pause: 1,
 		//pager: '#nav-cycle',
-		prev: '#prev',
-		next: "#next",
+		prev: '.slide-prev',
+		next: ".slide-next",
 		pagerAnchorBuilder: function(idx, slide) {
 			return "<li><a href='#'>"+slide.alt+"</a></li>";
 		}

@@ -3,7 +3,7 @@
 
 	<section id="home">
 
-		<div id="slideshow">
+		<div class="slideshow">
 			
 			<?php query_posts('post_type=slideshow&order=asc'); ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -14,8 +14,8 @@
 
 		</div>
 
-		<div id="prev"></div>
-		<div id="next"></div>
+		<div class="slide-prev"></div>
+		<div class="slide-next"></div>
 
 	</section>
 

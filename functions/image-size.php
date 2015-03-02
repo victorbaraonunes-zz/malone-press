@@ -17,6 +17,6 @@ add_filter('intermediate_image_sizes_advanced', 'remove_image');
  * Custom default image sizes.
  */
 
-add_image_size('slideshow',960,480,true );
+add_image_size('slideshow',920,440,true );
 
 

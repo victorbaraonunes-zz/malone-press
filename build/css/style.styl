@@ -3,6 +3,7 @@
 * Imports
 */
 
+@import "../../bower_components/semantic.gs/stylesheets/styl/grid.styl"
 @import "variables.styl"
 @import "mixins.styl"
 @import "forms.styl"
@@ -23,9 +24,14 @@ body
 	color: fontColor
 
 .wrap
-	width: grid
-	margin: auto
-	position: relative
+	max-width: grid
+	margin: 0 auto
+	
+header 
+	column(12)
+	
+.slideshow
+	column(12)
 
 h1 
 	margin: 20px 0px;
@@ -35,6 +41,7 @@ h1
 			color: #CCC
 
 footer 
+	column(12)
 	margin: 20px 0px
 	p 
 		font-size: 12px
