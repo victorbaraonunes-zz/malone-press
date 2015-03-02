@@ -39,6 +39,19 @@ function remove_metaboxes() {
 add_action('admin_menu','remove_metaboxes');
 
 /**
+ * Remove tags, category and etc by CSS.
+ */
+
+function remove_by_css() {
+    echo '
+    <style type="text/css">
+        #tagsdiv-post_tag, #category-adder { display: none; }
+    </style>
+    ';
+}
+add_action('admin_head', 'remove_by_css');
+
+/**
  * Remove some dashboards widgets.
  */
 
