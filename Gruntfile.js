@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         watch: {
 
             js: {
-                files: ['build/js/script.js','build/js/gmaps.js'],
+                files: ['build/js/*.js'],
                 tasks: ['uglify','concat'],
                 options: {
                     livereload: true,
@@ -20,8 +20,8 @@ module.exports = function(grunt) {
             },
 
             css: {
-                files: ['build/css/style.less','build/css/base.less'],
-                tasks: ['less','cssmin'],
+                files: ['build/css/*.styl'],
+                tasks: ['stylus','cssmin'],
                 options: {
                     livereload: true
                 },
@@ -43,15 +43,15 @@ module.exports = function(grunt) {
             },
         },
 
-        less: {
-            'build/_temp/style.css': ['build/css/style.less']
+        stylus: {
+            'bower_components/_temp/style.css': ['build/css/style.styl']
         },
 
         cssmin: {
             'assets/css/style.min.css': [
                 'bower_components/fancybox/source/jquery.fancybox.rewrited.css',
                 'build/css/webfont.css',
-                'build/_temp/style.css'
+                'bower_components/_temp/style.css'
             ]
         },
 
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
             target: 
             {
                 files: {           
-                    'build/_temp/script.js': [
+                    'bower_components/_temp/script.js': [
                         'bower_components/jquery-cycle/jquery.cycle.all.js',
                         'build/js/script.js',
                         'build/js/gmaps.js'
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
                     'bower_components/jquery-easing-original/jquery.easing.1.3.min.js',
                     'bower_components/html5shiv/dist/html5shiv.min.js',
                     'bower_components/updateyourbrowser/index.js',
-                    'build/_temp/script.js',
+                    'bower_components/_temp/script.js',
                 ],
                 dest: 'assets/js/script.min.js',
             },
@@ -197,14 +197,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-ftp-deploy');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks("grunt-css-url-rewrite");
 
-    grunt.registerTask('default', ['clean','cssUrlRewrite','copy','less','cssmin','uglify','concat']);
+    grunt.registerTask('default', ['clean','cssUrlRewrite','copy','stylus','cssmin','uglify','concat','watch']);
     grunt.registerTask('deploy', ['ftp-deploy']);
 
 };
