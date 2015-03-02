@@ -20,28 +20,30 @@ add_filter( 'enter_title_here', 'custom_title_name' );
 
 function remove_tinymce_buttons_1($buttons) {
 
-	return array(
-	    'bold',
-	    'italic',
+	$remove = array(
+	    //'bold',
+	    //'italic',
 	    'strikethrough',
-	    //'bullist',
-	    //'numlist',
-	    //'blockquote',
+	    'bullist',
+	    'numlist',
+	    'blockquote',
 	    //'justifyleft',
 	    //'justifycenter',
 	    //'justifyright',
-	    'link',
-	    'unlink',
-	    //'wp_more',
-	    //'spellchecker',
-	    //'wp_fullscreen',
-	    //'wp_adv',
-	    //'separator', 
-	    //"separator",
-	    //"bullist", 
-	    //"separator",
+	    //'link',
+	    //'unlink',
+	    'wp_more',
+	    'spellchecker',
+	    'wp_fullscreen',
+	    'wp_adv',
+	    'separator', 
+	    "separator",
+	    "bullist", 
+	    "separator",
 	    //add more here...
-	    );
+	   );
+
+	return array_diff($buttons, $remove);
 
 }
 

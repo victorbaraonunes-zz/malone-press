@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Custom dashborad footer.
+ * Custom dashboard footer.
  */
 
 function painel_footer() {
