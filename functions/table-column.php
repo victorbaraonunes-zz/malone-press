@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Customiza colunas da listagem do post type Post.
+ * Custom general columns.
  */
 
 function post_edit_columns($columns){
@@ -12,7 +12,7 @@ function post_edit_columns($columns){
 add_filter("manage_edit-post_columns", "post_edit_columns");
 
 /**
- * Customiza colunas da listagem conforme Post Type.
+ * Custom columns for post Type.
  */
 
 function slideshow_columns($columns){
@@ -28,7 +28,7 @@ function slideshow_columns($columns){
 add_filter("manage_edit-slideshow_columns", "slideshow_columns");
 
 /**
- * Insere o conteúdo nas colunas customizadas.
+ * Custom content on columns.
  */
 
 function posts_custom_columns($column_name, $id){
@@ -49,7 +49,7 @@ function posts_custom_columns($column_name, $id){
 add_action('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
 
 /**
- * Ajusta estilo da coluna e adiona tamanho da miniatura.
+ * Custom thumbnail on column.
  */
 
 function thumb_column() {

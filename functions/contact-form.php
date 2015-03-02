@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Função de criação do corpo do formulário.
+ * Custom form.
  */
 
 function the_contact_form()
@@ -30,7 +30,7 @@ function the_contact_form()
 }
 
 /**
- * Função de submissão de formulário.
+ * Custom form submit.
  */
 
 function the_form_submit($address)

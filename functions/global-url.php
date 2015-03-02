@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Define dados e URLs para utilização no Front ou Functions.
+ * Important constants.
  */
 
 define('NAME',get_bloginfo('name'));
@@ -12,7 +12,7 @@ define('THEME',get_bloginfo('template_directory'));
 define('PATH',get_template_directory());
 
 /**
- * Define tempo de save automático e seta revisões de posts.
+ * Autosave constants.
  */
 
 define('AUTOSAVE_INTERVAL', 300 );

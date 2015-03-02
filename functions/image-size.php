@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Remove tamanhos padronizados pelo Wordpress.
+ * Remove default wp sizes.
  */
 
 function remove_image( $sizes) {
@@ -14,7 +14,7 @@ function remove_image( $sizes) {
 add_filter('intermediate_image_sizes_advanced', 'remove_image');
 
 /**
- * Adiciona tamanhos personalizados.
+ * Custom default image sizes.
  */
 
 add_image_size('slideshow',960,480,true );

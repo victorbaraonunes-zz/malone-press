@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Remove opções do menu.
+ * Remove options menu.
  */
 
 function remove_menu() {
@@ -16,7 +16,7 @@ function remove_menu() {
 }
 
 /**
- * Remove metaboxes do editor conforme array.
+ * Remove metaboxes from custom type array.
  */
 
 function remove_metaboxes() {
@@ -39,7 +39,7 @@ function remove_metaboxes() {
 add_action('admin_menu','remove_metaboxes');
 
 /**
- * Remove widgets da tela inicial do painel.
+ * Remove some dashboards widgets.
  */
 
 function remove_widgets() {
@@ -59,17 +59,7 @@ function remove_widgets() {
 add_action('wp_dashboard_setup', 'remove_widgets' );
 
 /**
- * Customiza o rodapé do painel.
- */
-
-function painel_footer() {
-    echo "Desenvolvido por <a href='http://flize.com.br' title='Flize Tecnologia' target='_blank'>Flize Tecnologia</a>";
-    //echo "Desenvolvido por <a href='http://lola33.com.br' title='Lola 33 - Comunicação e Marketing' target='_blank'>Lola 33 - Comunicação e Marketing</a>";
-} 
-add_filter('admin_footer_text', 'painel_footer');
-
-/**
- * Customiza favicon do front, login e painel.
+ * Custom Favicon
  */
 
 function custom_favicon() {
@@ -81,7 +71,7 @@ add_action('admin_head', 'custom_favicon');
 add_action( 'login_head', 'custom_favicon' );
 
 /**
- * Remove parametros dos scripts e estilos.
+ * Remove scripts and style parameters from tag
  */
 
 function remove_parameters( $src ) {
@@ -93,7 +83,7 @@ add_filter( 'style_loader_src', 'remove_parameters', 9999 );
 add_filter( 'script_loader_src', 'remove_parameters', 9999 );
 
 /**
- * Remove cabeçalho do Wordpress no canto superior esquerdo do painel.
+ * Remove some itens from dashborad menu.
  */
 
 function remove_header() {
@@ -109,7 +99,7 @@ function remove_header() {
 add_action( 'wp_before_admin_bar_render', 'remove_header' );
 
 /**
- * Remove opções de cores na página do usuário.
+ * Remove users color options.
  */
 
 function remove_color() {
@@ -119,7 +109,7 @@ function remove_color() {
 add_action('admin_head', 'remove_color');
 
 /**
- * Remove botão opções de tela.
+ * Remove options screen.
  */
 
 function remove_screen_options(){
@@ -128,7 +118,7 @@ function remove_screen_options(){
 add_filter('screen_options_show_screen','remove_screen_options');
 
 /**
- * Somente admin é notificado de atualizações do core e plugins.
+ * Remove update alert, except admin.
  */
 
 function remove_update()
@@ -144,7 +134,7 @@ if(!current_user_can( 'manage_options' ))
 add_action( 'admin_menu', 'remove_menu' );
 
 /**
- * Remove assets desnecessários do front e adiciona suporte a thumbnail ao tema.
+ * Remove some assets from head.
  */
 
 add_filter( 'show_admin_bar', '__return_false' );
@@ -161,7 +151,7 @@ remove_action('wp_head', 'parent_post_rel_link', 10, 0);
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
 /**
- * Remove script e estilo do plugin Contact Form 7.
+ * Remove script and style from plugin Contact Form 7.
  */
 
 function remove_cf7_js() {
@@ -179,37 +169,7 @@ function remove_cf7_css() {
 }
 add_action( 'wp_print_styles', 'remove_cf7_css');
 
-/**
- * Remove e customiza visualização do plugin Attchments conforme array..
- */
 
-function attachments( $attachments )
-{
-
-	$array = array('post');
-
-	$args = array(
-	 
-	    'label' => 'Anexos',
-	    'post_type' => $array,
-	    'filetype' => null, //(array) (image|video|text|audio|application)
-	    //'note' => 'Anexe arquivos aqui!',
-	    'button_text' => __( 'Anexar Imagens', 'attachments' ),
-	    'modal_text' => __( 'Anexos', 'attachments' ),
-	 
-	    'fields' => array(
-	        array(
-	        'name' => 'title',
-	        'type' => 'text',
-	        'label' => __( 'Título', 'attachments' ),
-	        ),
-	    ),
-	);
- 
-	$attachments->register( 'attachments', $args );
-}
- 
-add_action( 'attachments_register', 'attachments' );
 
 
 

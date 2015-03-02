@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Customização de Meta Boxes
+ * Custom Meta Boxes
  */
  
 function admin_init(){
@@ -10,7 +10,7 @@ function admin_init(){
 add_action("admin_init", "admin_init");
 
 /**
- * Salva dados ao submeter o post.
+ * Custom Saves
  */
 
 function save_details(){

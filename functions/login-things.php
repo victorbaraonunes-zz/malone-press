@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Customiza a imagem da tela de login.
+ * Custom login logo.
  */
 
 function custom_logo() 
@@ -15,7 +15,7 @@ function custom_logo()
 add_action('login_head', 'custom_logo');
 
 /**
- * Customiza a URL imagem da tela de login.
+ * Custom login url.
  */
 
 function custom_url() 
@@ -25,7 +25,7 @@ function custom_url()
 add_filter( 'login_headerurl', 'custom_url' );
 
 /**
- * Customiza o atributo title da imagem da tela de login.
+ * Custom login title .
  */
 
 function custom_title() {
@@ -34,7 +34,7 @@ function custom_title() {
 add_filter( 'login_headertitle', 'custom_title' );
 
 /**
- * Customiza a mensagem de erro ao efetuar login.
+ * Custom login error message.
  */
 
 function custom_error()

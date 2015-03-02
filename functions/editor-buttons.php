@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Customiza título do editor conforme Post Type.
+ * Custom title for custom type.
  */
 
 function custom_title_name($title){
@@ -15,7 +15,7 @@ function custom_title_name($title){
 add_filter( 'enter_title_here', 'custom_title_name' );
 
 /**
- * Remove botões que não devem ser usados no front.
+ * Remove buttons from MCE Editor.
  */
 
 function remove_tinymce_buttons_1($buttons) {
@@ -53,7 +53,7 @@ add_filter("mce_buttons", "remove_tinymce_buttons_1", 99);
 add_filter("mce_buttons_2", "remove_tinymce_buttons_2", 99);
 
 /**
- * Remove botão Adionar Mídia.
+ * Remove add media.
  */
 
 function remove_add_button() {
