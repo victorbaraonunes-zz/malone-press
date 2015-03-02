@@ -57,6 +57,24 @@ function the_single_url()
 }
 
 /**
+ * Custom excerpt
+ */
+
+function the_custom_excerpt($size = 300){
+
+    $excerpt = get_the_content();
+    $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt);
+    $excerpt = substr($excerpt, 0, $size);
+    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+    $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+    $excerpt = $excerpt.'[...] <a href="'.get_the_permalink().'" title="Leia Mais" class="mais">Leia Mais</a>';
+    echo $excerpt;
+
+}
+
+/**
  * Custom attachments for custom type.
  */
 

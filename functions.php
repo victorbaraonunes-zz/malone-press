@@ -2,7 +2,7 @@
 
 /**
  *
- * Inclusão de funções.
+ * Functions
  * @author Jefferson Mexkiv
  *
  */
