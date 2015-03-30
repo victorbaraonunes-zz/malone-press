@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             },
 
             file: {
-                files: ['*.php','**/*.php'],
+                files: ['**.php','**/**.php'],
                 options: {
                     livereload: true
                 },

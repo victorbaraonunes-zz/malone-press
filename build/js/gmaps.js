@@ -1,9 +1,20 @@
 
-
+//See coordinates on: http://www.geo-tag.de/generator/en.html
 
 function initialize() {
+
+	var gmaps = document.querySelector('.gmaps');
+
+	if(gmaps == null)
+		return false;
+	
+	var latitude = gmaps.getAttribute('data-latitude');
+	var longitude = gmaps.getAttribute('data-longitude');
+	var title = gmaps.getAttribute('data-title');
+
+	console.log(gmaps);
  
-	var myLatlng = new google.maps.LatLng(-25.099425,-50.158322);
+	var myLatlng = new google.maps.LatLng(latitude, longitude);
 	var mapOptions = {
 
 		zoom: 16,
@@ -16,28 +27,28 @@ function initialize() {
 
 	}
 
-	var map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
+	var map = new google.maps.Map(gmaps, mapOptions);
 
-	 var contentString = '<div id="bloco"><h2>Ponta Grossa</h2>' +
-	'Cidade localizada no Estado do Paraná</div>';
-	var infowindow = new google.maps.InfoWindow({
-		content: contentString,
-		maxWidth: 600
-	});
+	 //var contentString = '<div id="bloco"><h2>Ponta Grossa</h2>' +
+	//'Cidade localizada no Estado do Paraná</div>';
+	//var infowindow = new google.maps.InfoWindow({
+		//content: contentString,
+		//maxWidth: 600
+	//});
 
 	//var image = "img/pin.png";
 	var marker = new google.maps.Marker({
 		position: myLatlng,
 		map: map,
 		//icon: image,
-		title: 'Cidade de Ponta Grossa',
+		title: title,
 		animation: google.maps.Animation.DROP
 	});
 
  
 }
 
-function loadScript() {
+function loadMaps() {
 
 	var script = document.createElement("script");
 	script.type = "text/javascript";
@@ -46,5 +57,6 @@ function loadScript() {
 	document.body.appendChild(script);
 
 }
- 
-window.onload = loadScript;
+
+window.onload = loadMaps;
+

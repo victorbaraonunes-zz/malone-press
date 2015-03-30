@@ -17,6 +17,8 @@
 		<div class="slide-prev"></div>
 		<div class="slide-next"></div>
 
+		<div class="gmaps" data-latitude="-25.099425" data-longitude="-50.158322" data-title="Ponta Grossa, Paraná, Brazil"></div>
+
 	</section>
 
 <?php get_footer() ?>
