@@ -1,37 +1,41 @@
-Malone Press
-================
+## Why use?
+This is clean initial Wordpress theme for development. Helps you use repeat functions and helps dashboard users with a clean panel. This project is basen Roots.IO.
 
-Base project for a Wordpress theme development.
+## File structure:
++ **./assets** *- minified css and js files, optimized images for deploy.*
++ **./build**  *- source files for development, dont deploy this.*
++ **./function/[files].php** *- functions files, see each one.*
++ **./.ftpass** *- grunt deploy access data.*
++ **./.gitignore** *- ignored files.*
++ **./bower.json** *- bower libs components.*
++ **./footer.php** *- wordpress base file.*
++ **./functions.php** *- wordpress base file.*
++ **./Gruntfile.js** *-task runners*
++ **./header.php** *- wordpress base file.*
++ **./index.php** *- wordpress base file.*
++ **./package.json** *- npm libs.*
++ **./README.md** *- this file.*
++ **./screenshot.png** *- wordpress base file.*
++ **./style.css** *- wordpress base file.*
 
-This project have Grunt and Bower dependencies. =)
+## How use:
+1. Clone with `git clone https://github.com/mexkiv/malone-press.git`
+2. Enter to the newly cloned directory with `cd malone-press`
+3. Install bower dependencies with `bower install`
+4. Install NPM dependencies (maybe need use sudo) `npm install`
 
-## Getting Started
+## Run it!
+1. Build and run with `grunt`
+2. Watch your changed files with `grunt watch`
+3. Deploy the project with `grunt deploy`
 
-  ```bash
- 
-  # Let's start!
-  # --------------------
+## Some links:
++ [Wordpress](http://wordpress.org)
++ [Malonepress](http://mexkiv.github.io/malone-press)
++ [NPM](https://www.npmjs.com)
++ [Bower.IO](http://bower.io)
++ [Grunt.JS](http://gruntjs.com)
++ [Roots.IO](https://roots.io)
 
-  # 1. Fork this repository and clone it into the current directory
-  git clone https://github.com/<your-username>/malone-press.git
-
-  # 2. Enter to the newly cloned directory
-  cd malone-press
-
-  # 3. Install the grunt and bower dependencies (maybe need use sudo)
-  npm install && bower install
-
-
-  # Development
-  # --------------------
-
-  # Run project
-  grunt 
-
-  # Watching your changed files, includes less(.less), javascript(.js), images and php files.
-  grunt watch
-
-  # For deploy the project. (you can configure user and pass at .ftppass file)
-  grunt deploy
-
-  ```
+## Contributing
+Contributions are welcome. Look our [Issues](https://github.com/mexkiv/malone-press/issues) to help you help us. =)
