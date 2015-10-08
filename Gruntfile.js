@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         watch: {
 
             js: {
-                files: ['build/js/*.js'],
+                files: ['src/js/*.js'],
                 tasks: ['uglify','concat'],
                 options: {
                     livereload: true,
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
             },
 
             css: {
-                files: ['build/css/*.styl'],
+                files: ['src/css/*.styl'],
                 tasks: ['stylus','cssmin'],
                 options: {
                     livereload: true
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             },
 
             img: {
-                files: ['build/img/*'],
+                files: ['src/img/*'],
                 tasks: ['copy:img'],
                 options: {
                     livereload: true
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 
         stylus: {
             'bower_components/_temp/style.css': [
-                'build/css/style.styl'
+                'src/css/style.styl'
             ]
         },
 
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
             'assets/css/style.min.css': [
                 //'bower_components/normalize.css/normalize.css',
                 'bower_components/fancybox/source/jquery.fancybox.rewrited.css',
-                'build/css/webfont.css',
+                'src/css/webfont.css',
                 'bower_components/_temp/style.css'
             ]
         },
@@ -63,13 +63,13 @@ module.exports = function(grunt) {
                 mangle: false,
                 preserveComments: false
             },
-            target: 
+            target:
             {
-                files: {           
+                files: {
                     'bower_components/_temp/script.js': [
                         'bower_components/jquery-cycle/jquery.cycle.all.js',
-                        'build/js/script.js',
-                        'build/js/gmaps.js'
+                        'src/js/script.js',
+                        'src/js/gmaps.js'
                     ]
                 }
             }
@@ -120,14 +120,14 @@ module.exports = function(grunt) {
                 dot: true
             },
             img: {
-                cwd: 'build/img',
+                cwd: 'src/img',
                 src: ['*.{jpg,png,gif}','!_*.*'],
                 dest: 'assets/img/',
                 expand: true,
                 dot: true
             },
             fonts: {
-                cwd: 'build/fonts',
+                cwd: 'src/fonts',
                 src: ['*.{eot,svg,ttf,woff}'],
                 dest: 'assets/fonts/',
                 expand: true,
@@ -135,29 +135,29 @@ module.exports = function(grunt) {
             },
             silence: {
                 files: [
-                    { 
-                        cwd: './assets', 
+                    {
+                        cwd: './assets',
                         src: ['index.php'],
                         dest: 'assets/img/',
                         expand: true,
                         dot: true
                     },
-                    { 
-                        cwd: './assets', 
+                    {
+                        cwd: './assets',
                         src: ['index.php'],
                         dest: 'assets/css/',
                         expand: true,
                         dot: true
                     },
-                    { 
-                        cwd: './assets', 
+                    {
+                        cwd: './assets',
                         src: ['index.php'],
                         dest: 'assets/js/',
                         expand: true,
                         dot: true
                     },
-                    { 
-                        cwd: './assets', 
+                    {
+                        cwd: './assets',
                         src: ['index.php'],
                         dest: 'assets/fonts/',
                         expand: true,
@@ -189,14 +189,14 @@ module.exports = function(grunt) {
                     '.ftppass',
                     '.gitignore',
                     '.git',
-                    'build'
+                    'src'
                 ]
             }
         }
 
 
     });
- 
+
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');

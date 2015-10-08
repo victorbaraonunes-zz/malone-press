@@ -3,7 +3,7 @@ This is clean initial Wordpress theme for development. Helps you use repeat func
 
 ## File structure:
 + **./assets** *- minified css and js files, optimized images for deploy.*
-+ **./build**  *- source files for development, dont deploy this.*
++ **./src**  *- source files for development, dont deploy this.*
 + **./function/[files].php** *- functions files, see each one.*
 + **./.ftpass** *- grunt deploy access data.*
 + **./.gitignore** *- ignored files.*
