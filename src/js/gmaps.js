@@ -3,17 +3,19 @@
 
 function initialize() {
 
-	var gmaps = document.querySelector('.gmaps');
+	var gmaps = document.querySelector('.map--google--js');
 
-	if(gmaps == null)
-		return false;
-	
+	if(gmaps == null) {
+		console.log('The element with the class .map--google--js wasn\'t found!');
+		return null;
+	}
+
 	var latitude = gmaps.getAttribute('data-latitude');
 	var longitude = gmaps.getAttribute('data-longitude');
 	var title = gmaps.getAttribute('data-title');
 
 	console.log(gmaps);
- 
+
 	var myLatlng = new google.maps.LatLng(latitude, longitude);
 	var mapOptions = {
 
@@ -45,7 +47,7 @@ function initialize() {
 		animation: google.maps.Animation.DROP
 	});
 
- 
+
 }
 
 function loadMaps() {
@@ -53,7 +55,7 @@ function loadMaps() {
 	var script = document.createElement("script");
 	script.type = "text/javascript";
 	script.src ="http://maps.googleapis.com/maps/api/js?key=AIzaSyB5a_04MNISrrljjff4kKB37zz5HNCI8Rg&sensor=false&callback=initialize";
-	 
+
 	document.body.appendChild(script);
 
 }

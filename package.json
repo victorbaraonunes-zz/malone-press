@@ -1,19 +1,18 @@
 {
   "name": "malone-press",
-  "version": "0.0.4",
-  "author": "Jefferson Mexkiv <jefferson@flize.com.br>",
+  "version": "0.2.0",
+  "author": "Flize Team <welcome@flize.com.br>",
   "homepage": "http://mexkiv.com.br",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-cssmin": "~0.7.0",
-    "grunt-contrib-stylus": "^0.20.0",
-    "grunt-contrib-uglify": "~0.3.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-css-url-rewrite": "~0.3.5",
-    "grunt-ftp-deploy": "~0.1.1",
-    "time-grunt": "^1.1.0"
+    "autoprefixer-stylus": "^0.8.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.1.0",
+    "gulp-uglify": "^1.4.2",
+    "jeet": "^6.1.2",
+    "kouto-swiss": "^0.11.13",
+    "rupture": "^0.6.1"
   }
 }

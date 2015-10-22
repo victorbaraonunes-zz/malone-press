@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
     fancybox();
 	cycle();
 	contato();
@@ -12,7 +12,7 @@ function fancybox()
 {
 
 	$(".fancybox").fancybox({
-		
+
 		padding: 0,
 		openEffect : 'fade',
 		openSpeed  : 150,
@@ -27,7 +27,7 @@ function fancybox()
 			}
 		}
 	});
-			
+
 }
 
 function cycle()
@@ -52,7 +52,7 @@ function cycle()
 
 function contato()
 {
-	
+
 	$('#enviar').click(function(){
 
 		var dados = $('form').serialize();
@@ -84,14 +84,14 @@ function contato()
    					}
    					$('#response').html(data.texto).css('color','red');
    					break;
-   					
+
    					case '1':
    					$('input,textarea').removeClass('red green');
    					$('#response').html(data.texto).css('color','#23ea14');
    					$('form')[0].reset();
    					break;
    				}
-			
+
   	 		},
 		});
 		return false;

@@ -1,7 +1,6 @@
-
 #FOR MALONEPRESS REPOSITORY
 node_modules
-bower_components
+src/vendors
 assets/*
 !assets/index.php
 .git
@@ -10,7 +9,7 @@ assets/*
 
 #FOR PROJECT REPOSITORY
 #wp-content/themes/**/node_modules
-#wp-content/themes/**/bower_components
+#wp-content/themes/**/src/vendors
 #wp-content/uploads
 #.git
 #.DS_Store

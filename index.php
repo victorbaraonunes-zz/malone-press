@@ -1,24 +1,21 @@
-
 <?php get_header() ?>
+	<section class="page page--home">
+		<div class="container">
+			<section class="slideshow">
+				<?php query_posts('post_type=slideshow&order=asc'); ?>
 
-	<section id="home">
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php the_post_thumbnail('slideshow') ?>
+				<?php endwhile; endif; ?>
+			</section>
 
-		<div class="slideshow">
-			
-			<?php query_posts('post_type=slideshow&order=asc'); ?>
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<nav class="" role="navigation">
+				<a href="#" title="Slide anterior"></a>
+				<a href="#" title="Próximo slide"></a>
+			</nav>
 
-			<?php the_post_thumbnail('slideshow') ?>
-
-			<?php endwhile; endif; ?>
-
+			<section class="map map--google map--google--js" data-latitude="-25.099425" data-longitude="-50.158322" data-title="Ponta Grossa, Paraná, Brazil"></section>
 		</div>
-
-		<div class="slide-prev"></div>
-		<div class="slide-next"></div>
-
-		<div class="gmaps" data-latitude="-25.099425" data-longitude="-50.158322" data-title="Ponta Grossa, Paraná, Brazil"></div>
-
 	</section>
 
 <?php get_footer() ?>
